@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cre4qj00j1y0e"]
+[gd_scene load_steps=9 format=3 uid="uid://cre4qj00j1y0e"]
 
 [ext_resource type="Script" path="res://src/questionnaire/questionnaire.gd" id="1_lyaks"]
 [ext_resource type="Texture2D" uid="uid://dutc1fqy82h1u" path="res://assets/backgrounds/game_bg.png" id="2_ls5j7"]
@@ -7,6 +7,7 @@
 [ext_resource type="BitMap" uid="uid://bp0nswqohfwt2" path="res://assets/sprites/answer_options/button_mask.png" id="5_gub1o"]
 [ext_resource type="Script" path="res://src/questionnaire/answer_option.gd" id="5_j7lcd"]
 [ext_resource type="Texture2D" uid="uid://dgdkfl3oixn60" path="res://assets/sprites/answer_options/sad.png" id="6_ccsaq"]
+[ext_resource type="Script" path="res://src/common/behaviours/cursor_changer.gd" id="7_xyuds"]
 
 [node name="Questionnaire" type="Control"]
 layout_mode = 3
@@ -95,6 +96,9 @@ texture_normal = ExtResource("4_43t2y")
 texture_click_mask = ExtResource("5_gub1o")
 script = ExtResource("5_j7lcd")
 
+[node name="CursorChanger" type="Node" parent="AnswerOptions/YesOption"]
+script = ExtResource("7_xyuds")
+
 [node name="NoOption" type="TextureButton" parent="AnswerOptions"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -102,6 +106,9 @@ size_flags_vertical = 4
 texture_normal = ExtResource("6_ccsaq")
 texture_click_mask = ExtResource("5_gub1o")
 script = ExtResource("5_j7lcd")
+
+[node name="CursorChanger" type="Node" parent="AnswerOptions/NoOption"]
+script = ExtResource("7_xyuds")
 
 [connection signal="pressed" from="AnswerOptions/YesOption" to="." method="_on_yes_option_pressed"]
 [connection signal="pressed" from="AnswerOptions/NoOption" to="." method="_on_no_option_pressed"]

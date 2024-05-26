@@ -4,26 +4,16 @@ var card_name
 var card_face
 var card_back
 var click_enabled = true
-var normal_cursor = preload("res://assets/cursors/Cursor.png")
-var hover_cursor = preload("res://assets/cursors/hand.png")
 
 func _ready():
     card_name = "Empty"
     card_face = preload("res://assets/minigames/memory/box.png")
     card_back = preload("res://assets/minigames/memory/box.png")
     get_node("Sprite").texture = card_back
-    connect("mouse_entered", self._on_mouse_entered)
-    connect("mouse_exited", self._on_mouse_exited)
 
 func _input_event(viewport, event, shape_idx):
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
         on_click()
-
-func _on_mouse_entered():
-    Input.set_custom_mouse_cursor(hover_cursor, Input.CURSOR_ARROW, Vector2(16, 10))
-
-func _on_mouse_exited():
-    Input.set_custom_mouse_cursor(normal_cursor, Input.CURSOR_ARROW, Vector2(16, 10))
 
 func on_click():
     if click_enabled:
