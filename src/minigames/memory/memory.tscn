@@ -1,0 +1,197 @@
+[gd_scene load_steps=7 format=3 uid="uid://byidcjlmcqtcm"]
+
+[ext_resource type="Script" path="res://src/minigames/memory/memory.gd" id="1_pqqwg"]
+[ext_resource type="Script" path="res://src/minigames/memory/card.gd" id="2_okeia"]
+[ext_resource type="Texture2D" uid="uid://dx4wouxq0yj27" path="res://assets/minigames/memory/box.png" id="3_mjs12"]
+[ext_resource type="Script" path="res://src/minigames/memory/card_one_name.gd" id="4_6arwq"]
+[ext_resource type="Script" path="res://src/minigames/memory/card_two_name.gd" id="5_tveaw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxtd3"]
+size = Vector2(176, 178)
+
+[node name="Memory" type="Node2D"]
+script = ExtResource("1_pqqwg")
+
+[node name="Card1" type="Area2D" parent="."]
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card1"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card1"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="Card2" type="Area2D" parent="."]
+position = Vector2(384, 0)
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card2"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card2"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="Card3" type="Area2D" parent="."]
+position = Vector2(768, 0)
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card3"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card3"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="Card4" type="Area2D" parent="."]
+position = Vector2(1152, 0)
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card4"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card4"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="Card5" type="Area2D" parent="."]
+position = Vector2(0, 270)
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card5"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card5"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="Card6" type="Area2D" parent="."]
+position = Vector2(384, 270)
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card6"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card6"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="Card7" type="Area2D" parent="."]
+position = Vector2(768, 270)
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card7"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card7"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="Card8" type="Area2D" parent="."]
+position = Vector2(1152, 270)
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card8"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card8"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="Card9" type="Area2D" parent="."]
+position = Vector2(0, 540)
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card9"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card9"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="Card10" type="Area2D" parent="."]
+position = Vector2(384, 540)
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card10"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card10"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="Card11" type="Area2D" parent="."]
+position = Vector2(768, 540)
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card11"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card11"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="Card12" type="Area2D" parent="."]
+position = Vector2(1152, 540)
+script = ExtResource("2_okeia")
+
+[node name="Sprite" type="Sprite2D" parent="Card12"]
+position = Vector2(349, 239)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_mjs12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card12"]
+position = Vector2(349, 238)
+shape = SubResource("RectangleShape2D_uxtd3")
+
+[node name="CardOneName" type="RichTextLabel" parent="."]
+offset_right = 206.0
+offset_bottom = 95.0
+text = "Card 1 : Name"
+script = ExtResource("4_6arwq")
+
+[node name="CardTwoName" type="RichTextLabel" parent="."]
+offset_top = 114.0
+offset_right = 206.0
+offset_bottom = 154.0
+text = "Card 1 : Name"
+script = ExtResource("5_tveaw")
+
+[node name="CheckBox" type="RichTextLabel" parent="."]
+offset_left = 5.0
+offset_top = 193.0
+offset_right = 154.0
+offset_bottom = 262.0
+text = "?"
+script = ExtResource("5_tveaw")
+
+[node name="NumberOfMatches" type="RichTextLabel" parent="."]
+offset_left = 14.0
+offset_top = 328.0
+offset_right = 197.0
+offset_bottom = 425.0
+text = "Number of Matches: 0"
+script = ExtResource("5_tveaw")

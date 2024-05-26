@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://cre4qj00j1y0e"]
+
+[ext_resource type="Script" path="res://src/questionnaire/questionnaire.gd" id="1_lyaks"]
+[ext_resource type="Texture2D" uid="uid://dutc1fqy82h1u" path="res://assets/backgrounds/game_bg.png" id="2_ls5j7"]
+[ext_resource type="Texture2D" uid="uid://bm4sb8hw03kwr" path="res://assets/gui/question.png" id="3_a747l"]
+[ext_resource type="Texture2D" uid="uid://b4bhqb0jmqghf" path="res://assets/sprites/answer_options/happy.png" id="4_43t2y"]
+[ext_resource type="BitMap" uid="uid://bp0nswqohfwt2" path="res://assets/sprites/answer_options/button_mask.png" id="5_gub1o"]
+[ext_resource type="Script" path="res://src/questionnaire/answer_option.gd" id="5_j7lcd"]
+[ext_resource type="Texture2D" uid="uid://dgdkfl3oixn60" path="res://assets/sprites/answer_options/sad.png" id="6_ccsaq"]
+
+[node name="Questionnaire" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lyaks")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ls5j7")
+expand_mode = 3
+
+[node name="QuestionContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 48
+
+[node name="NinePatchRect" type="NinePatchRect" parent="QuestionContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3_a747l")
+patch_margin_left = 24
+patch_margin_top = 60
+patch_margin_right = 24
+patch_margin_bottom = 60
+
+[node name="QuestionLabelContainer" type="MarginContainer" parent="QuestionContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 32
+
+[node name="QuestionLabel" type="Label" parent="QuestionContainer/QuestionLabelContainer"]
+custom_minimum_size = Vector2(1600, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.192157, 0.192157, 0.192157, 0.0941176)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 64
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnswerOptions" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -528.0
+offset_top = -81.0
+offset_right = 528.0
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 256
+
+[node name="YesOption" type="TextureButton" parent="AnswerOptions"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_43t2y")
+texture_click_mask = ExtResource("5_gub1o")
+script = ExtResource("5_j7lcd")
+
+[node name="NoOption" type="TextureButton" parent="AnswerOptions"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_ccsaq")
+texture_click_mask = ExtResource("5_gub1o")
+script = ExtResource("5_j7lcd")
+
+[connection signal="pressed" from="AnswerOptions/YesOption" to="." method="_on_yes_option_pressed"]
+[connection signal="pressed" from="AnswerOptions/NoOption" to="." method="_on_no_option_pressed"]
