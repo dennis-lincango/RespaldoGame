@@ -85,14 +85,14 @@ func _check_if_pair():
             _turn_around_cards()
             _enable_all_cards_clicks()
 
-    if number_of_matches == 6:
-        var timer = Timer.new()
-        timer.wait_time = 5.0
-        timer.one_shot = true
-        add_child(timer)
-        timer.start()
-        await timer.timeout
-        get_tree().change_scene_to_file("res://src/minigames/memory/memory.tscn")
+    # if number_of_matches == 6:
+    #     var timer = Timer.new()
+    #     timer.wait_time = 5.0
+    #     timer.one_shot = true
+    #     add_child(timer)
+    #     timer.start()
+    #     await timer.timeout
+    #     get_tree().change_scene_to_file("res://src/minigames/memory/memory.tscn")
 
 func _reset_card_name_strings_and_check_box():
     get_node("CardOneName").text = card_one_string
