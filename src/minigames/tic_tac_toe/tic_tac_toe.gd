@@ -21,7 +21,8 @@ func _ready():
     
     transition_player = get_node_or_null("TransitionPlayer")
     if transition_player:
-        transition_player.connect("animation_finished", _on_animation_player_animation_finished)
+        if not transition_player.is_connected("animation_finished", _on_animation_player_animation_finished):
+            transition_player.connect("animation_finished", _on_animation_player_animation_finished)
     else:
         print("Error: TransitionPlayer no encontrado.")
 

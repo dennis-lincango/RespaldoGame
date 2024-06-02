@@ -16,6 +16,8 @@ var all_remaining_cards = []
 var random_card
 var card_number
 
+var transition_player : AnimationPlayer = null
+
 func _ready():
     number_of_matches = 0
     card_one_string = "Card 1"
@@ -71,6 +73,8 @@ func _check_if_pair():
         last_try_was_pair = true
         number_of_matches += 1
         get_node("NumberOfMatches").text = "Number of Matches: " + str(number_of_matches)
+        if number_of_matches == 6:  # All pairs found
+            _end_game()
     elif get_node("CardOneName").text != "Card 1" and get_node("CardTwoName").text != "Card 2":
         if get_node("CardOneName").text != get_node("CardTwoName").text:
             _disable_all_cards_clicks()
@@ -84,15 +88,6 @@ func _check_if_pair():
             _reset_card_name_strings_and_check_box()
             _turn_around_cards()
             _enable_all_cards_clicks()
-
-    # if number_of_matches == 6:
-    #     var timer = Timer.new()
-    #     timer.wait_time = 5.0
-    #     timer.one_shot = true
-    #     add_child(timer)
-    #     timer.start()
-    #     await timer.timeout
-    #     get_tree().change_scene_to_file("res://src/minigames/memory/memory.tscn")
 
 func _reset_card_name_strings_and_check_box():
     get_node("CardOneName").text = card_one_string
@@ -113,3 +108,16 @@ func _enable_all_cards_clicks():
     for i in range(1, 13):
         if get_node("Card" + str(i)).get_node("Sprite").texture == default_image:
             get_node("Card" + str(i)).click_enabled = true
+
+func _end_game():
+    var animation_player = $AnimationPlayer
+    animation_player.play("slide_transition")
+    animation_player.connect("animation_finished", _reload_scene)
+
+func _reload_scene(_anim_name):
+    get_tree().reload_current_scene()
+'''
+func _on_animation_player_animation_finished(anim_name):
+    if anim_name == "slide_transition":
+        get_tree().reload_current_scene()
+        '''
