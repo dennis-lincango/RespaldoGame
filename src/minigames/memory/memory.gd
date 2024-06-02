@@ -39,7 +39,7 @@ func _ready():
     randomize()
     init = false
 
-func _process(delta):
+func _process(_delta):
     if !init:
         _shuffle_cards()
 
@@ -63,9 +63,9 @@ func _get_random_card():
     all_remaining_cards.remove_at(random_card)
     return "Card" + str(card_number)
 
-func _assign_image_and_name(card, image, name):
+func _assign_image_and_name(card, image, card_name):
     get_node(card).card_face = image
-    get_node(card).card_name = name
+    get_node(card).card_name = card_name
 
 func _check_if_pair():
     if get_node("CardOneName").text == get_node("CardTwoName").text:
@@ -116,8 +116,4 @@ func _end_game():
 
 func _reload_scene(_anim_name):
     get_tree().reload_current_scene()
-'''
-func _on_animation_player_animation_finished(anim_name):
-    if anim_name == "slide_transition":
-        get_tree().reload_current_scene()
-        '''
+
