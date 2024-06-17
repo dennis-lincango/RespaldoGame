@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://qm5f0v37na1n"]
+
+[ext_resource type="Shader" path="res://src/intro/intro.gdshader" id="1_sv864"]
+[ext_resource type="Texture2D" uid="uid://nq7456iqleq" path="res://assets/backgrounds/farm_bg.png" id="2_hb3d0"]
+[ext_resource type="FontFile" uid="uid://bdnwtfj0o2gyv" path="res://assets/fonts/TitanOne-Regular.ttf" id="3_wa2jq"]
+[ext_resource type="Texture2D" uid="uid://blg3cg1naay1o" path="res://assets/intro/buttom_play.png" id="4_uo8ui"]
+[ext_resource type="Script" path="res://src/intro/Area2D.gd" id="4_wl4mf"]
+[ext_resource type="FontFile" uid="uid://car5dbnakhbh0" path="res://assets/fonts/Poppins-Medium.ttf" id="5_b5al5"]
+[ext_resource type="Script" path="res://src/common/behaviours/cursor_changer.gd" id="6_hl5iw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n0e8t"]
+shader = ExtResource("1_sv864")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rws3b"]
+radius = 123.18
+height = 251.536
+
+[node name="Intro" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_n0e8t")
+offset_top = -719.0
+offset_right = 1920.0
+offset_bottom = 1681.0
+texture = ExtResource("2_hb3d0")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 501.0
+offset_top = 230.0
+offset_right = 1401.0
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_wa2jq")
+theme_override_font_sizes/font_size = 135
+text = "HEDAN GAME"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(960, 702)
+scale = Vector2(1.93213, 0.625)
+script = ExtResource("4_wl4mf")
+
+[node name="ButtomPlay" type="Sprite2D" parent="Area2D"]
+position = Vector2(-0.258789, -0.800045)
+scale = Vector2(0.964366, 0.98125)
+texture = ExtResource("4_uo8ui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_rws3b")
+
+[node name="CursorChanger" type="Node" parent="Area2D"]
+script = ExtResource("6_hl5iw")
+
+[node name="Play" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 841.0
+offset_top = 641.0
+offset_right = 1093.0
+offset_bottom = 761.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_b5al5")
+theme_override_font_sizes/font_size = 85
+text = "Jugar"
+
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
